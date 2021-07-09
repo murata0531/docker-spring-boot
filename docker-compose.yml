@@ -2,7 +2,7 @@ version: '3'
 services:
   dbserver:
     build: ./docker/mysql
-    image: demo-db:0.0.1
+    image: spring-db:0.0.1
     restart: always
     environment:
       MYSQL_DATABASE: spring
