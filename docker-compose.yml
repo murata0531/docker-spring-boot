@@ -1,0 +1,21 @@
+version: '3'
+services:
+  dbserver:
+    build: ./docker/mysql
+    image: demo-db:0.0.1
+    restart: always
+    environment:
+      MYSQL_DATABASE: spring
+      MYSQL_USER: spring
+      MYSQL_PASSWORD: spring
+      MYSQL_ROOT_PASSWORD: spring_root
+    ports:
+    - "3314:3306"
+    volumes:
+    - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+    - ./docker/mysql/conf.d:/etc/mysql/conf.d
+    - ./log/mysql:/var/log/mysql
+
+volumes:
+  mysql-db:
+    driver: local
